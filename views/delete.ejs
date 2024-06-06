@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+    <h1>Eliminar Producto</h1>
+    <form action="/delete" method="POST" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="codigo" class="sr-only">Código:</label>
+            <input type="text" id="codigo" name="codigo" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-danger mb-2">Eliminar</button>
+    </form>
+    <a href="/" class="btn btn-secondary mt-3">Regresar</a>
+    <%- include('partials/footer') %>

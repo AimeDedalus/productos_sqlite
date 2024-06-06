@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+    <h1>Confirmar Eliminación</h1>
+    <% if (product) { %>
+        <p><strong>Código:</strong>
+            <%= product.codigo %>
+        </p>
+        <p><strong>Nombre:</strong>
+            <%= product.nombre %>
+        </p>
+        <p><strong>Categoría:</strong>
+            <%= product.categoria %>
+        </p>
+        <p><strong>Stock:</strong>
+            <%= product.stock %>
+        </p>
+        <p><strong>Stock Min:</strong>
+            <%= product.stockmin %>
+        </p>
+        <p><strong>Precio:</strong>
+            <%= product.precio %>
+        </p>
+        <form action="/deleteConfirm" method="POST" class="form">
+            <input type="hidden" name="id" value="<%= product.id %>">
+            <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+            <a href="/delete" class="btn btn-secondary">Cancelar</a>
+        </form>
+        <% } else { %>
+            <p>Producto no encontrado.</p>
+            <a href="/delete" class="btn btn-secondary mt-3">Regresar</a>
+            <% } %>
+                <%- include('partials/footer') %>

@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+    <h1>Modificar Producto</h1>
+    <% if (product) { %>
+        <form action="/modify" method="POST" class="form">
+            <input type="hidden" name="id" value="<%= product.id %>">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="form-control" value="<%= product.nombre %>"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoría:</label>
+                <input type="text" id="categoria" name="categoria" class="form-control" value="<%= product.categoria %>"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" name="stock" class="form-control" value="<%= product.stock %>" required>
+            </div>
+            <div class="form-group">
+                <label for="stockmin">Stock Min:</label>
+                <input type="number" id="stockmin" name="stockmin" class="form-control" value="<%= product.stockmin %>"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" step="0.01" id="precio" name="precio" class="form-control"
+                    value="<%= product.precio %>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Modificar</button>
+        </form>
+        <% } else { %>
+            <p>Producto no encontrado.</p>
+            <% } %>
+                <a href="/" class="btn btn-secondary mt-3">Regresar</a>
+                <%- include('partials/footer') %>
